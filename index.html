@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBB</title>
+    <link rel="stylesheet" href="gbbcss.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>GALLERY KENANGAN GBB</h1>
+        <p>website menyimpan kenangan anak magang dari lamongan</p>
+    </header>
+
+    <div class="container">
+        <div class="biodata">
+            <img src="gbbfinalboos.jpeg" alt="Foto Profil">
+            <div class="info">
+                <h2>GBB</h2>
+                <p>Gudang Bahan Baku</p>
+            </div>
+        </div>
+
+
+
+
+        <button class="lihat-btn" id="lihatBtn" onclick="putarLagu()">Lihat Galeri</button>
+        <audio id="lagu" src="audio1.mp3" loop></audio>
+
+        <div class="gallery" id="gallery">
+            <h3>Galeri Foto</h3>
+            <p class="p1">tekan foto untuk melihat informasi dari foto tersebut</p>
+            <div class="photos">
+                <img src="foto1.jpeg" alt="Foto saat magang" data-info="rizal sedang menulis di papan">
+                <img src="foto2.jpeg" alt="Foto saat magang" data-info="mumet wonge">
+                <img src="foto3.jpeg" alt="Foto saat magang" data-info="mas endra sedang berpose">
+                <img src="foto4.jpeg" alt="Foto saat magang" data-info="mas rio sedang membuat lampiran LPB&PPB">
+                <img src="foto5.jpeg" alt="Foto saat magang" data-info="sulthon sedang membuat LPB&PPB">
+                <img src="foto6.jpeg" alt="Foto saat magang" data-info="ipul ganjarskin1">
+                <img src="foto7.jpeg" alt="Foto saat magang" data-info="ipul ganar skin2">
+                <img src="foto8.jpeg" alt="Foto saat magang" data-info="ipul ganjar skin3">
+                <img src="foto9.jpeg" alt="Foto saat magang" data-info="ipul with pak kastam">
+                <img src="foto10.jpeg" alt="Foto saat magang" data-info="ipul skin mbahno1">
+                <img src="foto11.jpeg" alt="Foto saat magang" data-info="ipul skin mbahno2">
+                <img src="foto12.jpeg" alt="Foto saat magang" data-info="mas endra smiling">
+                <img src="foto13.jpeg" alt="Foto saat magang" data-info="rizal smiling">
+                <img src="foto14.jpeg" alt="Foto saat magang" data-info="ipul sedang di sandra">
+                <img src="foto15.jpeg" alt="Foto saat magang" data-info="trio kematian">
+                <img src="foto16.jpeg" alt="Foto saat magang" data-info="sulthon mode serius ">
+                <img src="foto17.jpeg" alt="Foto saat magang" data-info="rizal mode serius">
+                <img src="foto18.jpeg" alt="Foto saat magang" data-info="sulthon tdur">
+                <img src="foto19.jpeg" alt="Foto saat magang" data-info="rizal minum air kawai">
+                <img src="foto20.jpeg" alt="Foto saat magang" data-info="ipul mode on aktif">
+                <img src="foto21.jpeg" alt="Foto saat magang" data-info="mas endra bertanya ke mas rio">
+                <img src="foto22.jpeg" alt="Foto saat magang" data-info="ipuk basic">
+                <img src="foto23.jpeg" alt="Foto saat magang" data-info="rizal semangat pagi">
+                <img src="foto24.jpeg" alt="Foto saat magang" data-info="sulthon pegang kepala">
+                <img src="foto25.jpeg" alt="Foto saat magang" data-info="ipul berfikir keras">
+                <img src="foto26.jpeg" alt="Foto saat magang" data-info="rizal 180°">
+                <img src="foto27.jpeg" alt="Foto saat magang" data-info="MAS ENDRA LEGENDARY SKIN GANJAR">
+                <img src="foto28.jpeg" alt="Foto saat magang" data-info="mesin hd vp1">
+                <img src="foto29.jpeg" alt="Foto saat magang" data-info="mesin hd vp2">
+                <img src="foto30.jpeg" alt="Foto saat magang" data-info="mesin hd vp3">
+                <img src="foto31.jpg" alt="Foto saat magang" data-info="wong kucluk jare ipul">
+                <img src="foto32.jpg" alt="Foto saat magang" data-info="mesin webb">
+                <img src="foto33.jpg" alt="Foto saat magang" data-info="mas rio gaming">
+                <img src="foto34.jpg" alt="Foto saat magang" data-info="rizal ngeslot di warung mas firman">
+                <img src="foto35.jpg" alt="Foto saat magang" data-info="dana adegan 18++">
+                <img src="foto36.jpg" alt="Foto saat magang" data-info="mesin bending">
+                <img src="foto37.jpeg" alt="Foto saat magang" data-info="dana tidur di ruangan pak jo">
+                <img src="foto38.jpeg" alt="Foto saat magang" data-info="mas endra nganu">
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Info Foto -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="">
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 | Website kenangan dibuat oleh anak magang dari lamongan
+    </footer>
+
+    <script>
+        function putarLagu() {
+            const lagu = document.getElementById("lagu");
+            lagu.play();  // lagu mulai
+        }
+        // Tombol untuk menampilkan galeri
+        const lihatBtn = document.getElementById('lihatBtn');
+        const gallery = document.getElementById('gallery');
+
+        lihatBtn.addEventListener('click', () => {
+            gallery.style.display = 'block';
+            lihatBtn.style.display = 'none'; // sembunyikan tombol setelah diklik
+        });
+
+        // Popup modal
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalText = document.getElementById('modal-text');
+        const closeBtn = document.querySelector('.close');
+        const photos = document.querySelectorAll('.photos img');
+
+        photos.forEach(photo => {
+            photo.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = photo.src;
+                modalText.textContent = photo.getAttribute('data-info');
+            });
+        });
+
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+    </script>
+
+</body>
+
+</html>
